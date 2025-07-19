@@ -1256,7 +1256,6 @@
             /* height: 550px; */ /* Eliminado para usar aspect-ratio */
         }
         
-        /* --- AJUSTE 3.0 --- */
         .contact-container::before {
              background: 
                 linear-gradient(to top, 
@@ -1265,7 +1264,8 @@
                     rgba(26, 26, 46, 0.85) 65%,
                     rgba(26, 26, 46, 0.8) 100%
                 ),
-                url('assets/images/gallery/contact.png') center center/cover; /* <-- RUTA CORREGIDA A IMAGEN LOCAL */
+                /* --- AJUSTE 4.0 --- */
+                url('assets/images/gallery/contact.png') left center/cover; /* <-- POSICIÓN AJUSTADA A LA IZQUIERDA */
         }
 
         .nav-container, .hero-content, section.section-container {
@@ -1276,19 +1276,18 @@
             gap: 20px;
         }
 
-        /* --- AJUSTE 2.0 --- */
         .slide-overlay {
-            padding: 20px; /* Reduce el padding para dar más espacio */
+            padding: 20px;
         }
         .slide-text {
-            padding: 15px; /* Reduce el padding de la caja de texto */
-            font-size: clamp(0.9rem, 2.5vw, 1rem); /* Ajusta el tamaño de fuente */
+            padding: 15px;
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
         }
         .slide-title {
-            font-size: clamp(1.5rem, 4vw, 1.8rem); /* Ajusta el tamaño del título */
+            font-size: clamp(1.5rem, 4vw, 1.8rem);
         }
         .method-header {
-            margin-bottom: 15px; /* Reduce el margen inferior */
+            margin-bottom: 15px;
         }
     }
 
@@ -1320,26 +1319,25 @@
             padding-right: 10px;
         }
 
-        /* --- AJUSTE 2.0 --- */
         .method-header {
-            flex-direction: column; /* Apila el ícono y el título */
+            flex-direction: column;
             gap: 10px;
             margin-bottom: 15px;
         }
         .phase-number {
-            font-size: 3.5rem; /* Reduce drásticamente el número */
+            font-size: 3.5rem;
             top: 15px;
             left: 15px;
         }
         .slide-title {
-            font-size: 1.3rem; /* Reduce aún más el título */
+            font-size: 1.3rem;
         }
         .slide-text {
-            font-size: 0.85rem; /* Reduce aún más el texto */
+            font-size: 0.85rem;
             line-height: 1.5;
         }
         .carousel-controls {
-            bottom: 15px; /* Sube un poco los controles */
+            bottom: 15px;
         }
     }
 
