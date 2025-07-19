@@ -6,9 +6,6 @@
     <title>Explora Analytics - Transformando Datos en Decisiones Estratégicas</title>
     <meta name="description" content="Explora Analytics ofrece soluciones avanzadas de análisis de datos para impulsar la toma de decisiones estratégicas en tu negocio. Descubre cómo podemos ayudarte a transformar tus datos en información valiosa."/>
     
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
-
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/images/logos/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/logos/favicon-16x16.png">
@@ -16,6 +13,11 @@
     <link rel="mask-icon" href="assets/images/logos/safari-pinned-tab.svg" color="#0066ff">
     <meta name="theme-color" content="#0066ff">
     <link rel="manifest" href="assets/site.webmanifest">
+
+    
+
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
 
 <style>
     :root {
@@ -42,7 +44,7 @@
         font-family: 'Space Grotesk', sans-serif;
         line-height: 1.6;
         color: var(--text-primary);
-        overflow-x: hidden;
+        overflow-x: hidden; /* Asegura que no haya scroll horizontal no deseado */
         background: var(--dark-bg);
         position: relative;
     }
@@ -153,13 +155,12 @@
     }
 
     .menu-toggle {
-        display: none;
+        display: none; /* Por defecto, oculto en desktop */
         background: none;
         border: none;
         color: var(--text-primary);
         font-size: 1.8rem;
         cursor: pointer;
-        z-index: 1001;
     }
 
     /* Hero Section */
@@ -568,14 +569,17 @@
         padding: 20px 20px;
     }
 
+    /* --- CSS CORREGIDO --- */
     .methodology-slider {
+        width: 100%; /* <-- AÑADIDO PARA CORREGIR EL BUG EN MÓVILES */
         max-width: 1200px;
         margin: 0 auto;
         position: relative;
         border-radius: 25px;
         overflow: hidden;
         box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
-        height: 600px;
+        height: auto;
+        aspect-ratio: 16/9;
     }
 
     .carousel-slide {
@@ -1063,7 +1067,7 @@
         box-shadow: 0 10px 30px rgba(0, 212, 255, 0.6);
     }
 
-    /* Footer Section */
+    /* --- INICIO: SECCIÓN DE FOOTER --- */
     .footer {
         background: #06060a;
         color: var(--text-primary);
@@ -1145,6 +1149,8 @@
         color: var(--accent-cyan);
         text-decoration: underline;
     }
+    /* --- FIN: SECCIÓN DE FOOTER --- */
+
 
     /* Responsive Design */
     @media (max-width: 1200px) {
@@ -1156,9 +1162,10 @@
         }
     }
 
+    /* --- CSS CORREGIDO --- */
     @media (max-width: 900px) {
         .methodology-slider {
-            height: 500px;
+            /* height: 500px; */ /* <-- ELIMINADO PARA USAR ASPECT-RATIO */
         }
         .slide-content {
             padding: 0 15px;
@@ -1186,6 +1193,7 @@
         }
     }
 
+    /* --- CSS CORREGIDO --- */
     @media (max-width: 768px) {
         .menu-toggle {
             display: block;
@@ -1202,7 +1210,6 @@
             padding: 20px 0;
             clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
             transition: clip-path 0.5s ease;
-            z-index: 999;
         }
         .nav-menu.active {
             clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
@@ -1249,7 +1256,7 @@
             padding: 40px 25px;
         }
         .methodology-slider {
-            height: 550px;
+            /* height: 550px; */ /* <-- ELIMINADO PARA USAR ASPECT-RATIO */
         }
         .contact-container::before {
              background: 
@@ -1259,10 +1266,18 @@
                     rgba(26, 26, 46, 0.85) 65%,
                     rgba(26, 26, 46, 0.8) 100%
                 ),
-                url('assets/images/gallery/contact.png') center center/cover;
+                url('https://images.unsplash.com/photo-1554774853-719586f82d77?q=80&w=2070&auto=format&fit=crop') center center/cover;
+        }
+        .nav-container, .hero-content, section.section-container {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+        .hero-content {
+            gap: 20px;
         }
     }
 
+    /* --- CSS CORREGIDO --- */
     @media (max-width: 480px) {
         .hero-title {
             font-size: 2.1rem;
@@ -1283,7 +1298,7 @@
             font-size: 1.2rem;
         }
         .methodology-slider {
-            height: 600px;
+            /* height: 600px; */ /* <-- ELIMINADO PARA USAR ASPECT-RATIO */
         }
         .method-header {
             flex-direction: column;
@@ -1294,11 +1309,9 @@
             top: 15px;
             left: 15px;
         }
-        .contact-container {
-            flex-direction: column;
-        }
-        .contact-intro, .contact-form-wrapper {
-            min-width: 100%;
+        .nav-container, .hero-content, section.section-container {
+            padding-left: 10px;
+            padding-right: 10px;
         }
     }
 
@@ -1330,7 +1343,7 @@
         to { opacity: 1; transform: translateY(0); }
     }
     
-    /* Modal Styles */
+    /* --- ESTILOS MODAL Y CTA (MEJORADOS) --- */
     .modal {
         display: none;
         position: fixed;
@@ -1341,14 +1354,12 @@
         height: 100vh;
         background: rgba(0,0,0,0.9);
         justify-content: center;
-        align-items: flex-start;
+        align-items: center;
         padding: 20px;
-        overflow: auto;
+        overflow-y: auto;
     }
 
     .modal-content {
-        overflow-y: auto;
-        padding-top: 10px;
         position: relative;
         width: 100%;
         max-width: 900px;
@@ -1388,7 +1399,7 @@
     }
 
     .modal-close {
-        position: fixed;
+        position: absolute;
         top: 15px;
         right: 20px;
         background: rgba(0,0,0,0.4);
@@ -1447,7 +1458,7 @@
         margin-right: auto;
     }
     
-    /* Mobile adjustments */
+    /* AJUSTES ESPECÍFICOS PARA MÓVILES */
     @media (max-width: 768px) {
         .modal {
             padding: 10px;
@@ -1480,15 +1491,36 @@
             font-size: 1rem;
         }
     }
+    /* --- FIN ESTILOS MODAL --- */
 
-    @media (max-width: 768px) {
-        #modalCtaButton {
-            padding: 10px 20px;
-            font-size: 0.95rem;
-        }
+
+    
+@media (max-width: 768px) {
+    .modal-video-container {
+        max-height: 35vh;
     }
+    .modal-cta-area {
+        padding: 16px 20px;
+    }
+    .modal-cta-area h3 {
+        font-size: 1.2rem;
+    }
+    .modal-cta-area p {
+        font-size: 0.9rem;
+    }
+}
 
-    /* Card images */
+
+
+@media (max-width: 768px) {
+    #modalCtaButton {
+        padding: 10px 20px;
+        font-size: 0.95rem;
+    }
+}
+
+
+/* --- AJUSTES PARA IMÁGENES EN TARJETAS 3D HERO --- */
     .process-step-back {
         position: relative;
         z-index: 1;
@@ -1504,8 +1536,8 @@
         background-size: cover;
         background-position: center;
         border-radius: 20px;
-        opacity: 0.15;
-        filter: blur(3px);
+        opacity: 0.3;
+        filter: blur(1px);
         z-index: -1;
         transition: 
             opacity 0.7s ease-out,
@@ -1513,7 +1545,7 @@
     }
 
     .process-step:hover .process-step-back::before {
-        opacity: 0.45 !important;
+        opacity: 0.6 !important;
         filter: blur(0) brightness(115%);
     }
 
@@ -1661,7 +1693,7 @@
     <div class="modal-content">
         <button class="modal-close" onclick="closeModal()">×</button>
         <div class="modal-video-container">
-            <video autoplay controls id="modalVideo">
+            <video autoplay="" controls="" id="modalVideo">
                 <source id="modalSource" src="" type="video/mp4"/>
                 Tu navegador no soporta video HTML5.
             </video>
@@ -1832,12 +1864,26 @@
 <input id="privacy-policy" name="privacy-policy" required="" type="checkbox"/>
 <label for="privacy-policy">Acepto las <a href="#" target="_blank">políticas de tratamiento de datos personales</a></label>
 </div>
+<input type="hidden" id="recaptcha-response" name="recaptcha-response">
 <button class="cta-button" type="submit">Enviar Mensaje</button>
 <p class="microcopy">
   Tus datos son importantes para nosotros</a>.
 </p>
 </form>
 </div>
+
+<script src="https://www.google.com/recaptcha/api.js?render=TU_SITE_KEY" async defer></script>
+<script>
+    // Script para manejar el token de reCAPTCHA
+    grecaptcha.ready(function() {
+        grecaptcha.execute('TU_SITE_KEY', {action: 'contact'}).then(function(token) {
+            document.getElementById('recaptcha-response').value = token;
+        }).catch(function(error) {
+            console.error("Error al ejecutar reCAPTCHA:", error);
+        });
+    });
+</script>
+
 </div>
 </div>
 </section>
@@ -1862,6 +1908,7 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
+
         // Header scroll effect
         const header = document.querySelector('.header');
         window.addEventListener('scroll', () => {
@@ -1879,14 +1926,11 @@
             navMenu.classList.toggle('active');
             menuToggle.innerHTML = navMenu.classList.contains('active') ?
                 '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
-        });
-
-        // Close mobile menu when clicking links
-        document.querySelectorAll('.nav-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-            });
+            if (navMenu.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
         });
 
         // Smooth scrolling for navigation links
@@ -1899,6 +1943,7 @@
                     if (navMenu.classList.contains('active')) {
                         navMenu.classList.remove('active');
                         menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                        document.body.style.overflow = '';
                     }
                     const target = document.querySelector(href);
                     if (target) {
@@ -1910,6 +1955,7 @@
                 }
             });
         });
+
 
         // Animation on scroll
         const observerOptions = {
@@ -1938,28 +1984,33 @@
                     alert('Debes aceptar las políticas de tratamiento de datos personales para enviar el formulario.');
                     return;
                 }
-
-                const formWrapper = document.querySelector('.contact-form-wrapper');
-                const existingMessage = formWrapper.querySelector('.success-message');
-                if (existingMessage) {
-                    existingMessage.remove();
-                }
-                const successMessage = document.createElement('div');
-                successMessage.className = 'success-message';
-                successMessage.innerHTML = `
-                    <i class="fas fa-check-circle" style="font-size: 2.5rem; color: var(--accent-cyan); margin-bottom: 15px; display: block;"></i>
-                    <h4 style="margin-bottom: 10px; font-size: 1.5rem;">¡Gracias por contactarnos!</h4>
-                    <p style="color: var(--text-secondary);">Hemos recibido tu mensaje y nos pondremos en contacto contigo en menos de 24 horas. Nos comprometemos a proteger tus datos y usarlos solo de acuerdo con nuestra <a href="/politica-de-privacidad.html">política de privacidad</a>.</p>
-                `;
-                this.style.display = 'none';
-                formWrapper.insertBefore(successMessage, this);
-                setTimeout(() => {
-                    this.reset();
-                    privacyCheckbox.checked = false;
-                    successMessage.remove();
-                    this.style.display = 'block';
-                }, 6000);
+                
+                // Simulación de envío exitoso
+                showSuccessMessage(this);
             });
+        }
+
+        function showSuccessMessage(formElement) {
+            const formWrapper = formElement.closest('.contact-form-wrapper');
+            const existingMessage = formWrapper.querySelector('.success-message');
+            if (existingMessage) {
+                existingMessage.remove();
+            }
+            const successMessage = document.createElement('div');
+            successMessage.className = 'success-message';
+            successMessage.innerHTML = `
+                <i class="fas fa-check-circle" style="font-size: 2.5rem; color: var(--accent-cyan); margin-bottom: 15px; display: block;"></i>
+                <h4 style="margin-bottom: 10px; font-size: 1.5rem;">¡Gracias por contactarnos!</h4>
+                <p style="color: var(--text-secondary);">Hemos recibido tu mensaje y nos pondremos en contacto contigo en menos de 24 horas. Nos comprometemos a proteger tus datos y usarlos solo de acuerdo con nuestra <a href="/politica-de-privacidad.html">política de privacidad</a>.</p>
+            `;
+            formElement.style.display = 'none';
+            formWrapper.insertBefore(successMessage, formElement);
+            setTimeout(() => {
+                formElement.reset();
+                document.getElementById('privacy-policy').checked = false;
+                successMessage.remove();
+                formElement.style.display = 'block';
+            }, 6000);
         }
 
         // Carrusel de Metodología
@@ -2030,17 +2081,18 @@
             startAutoSlide();
         }
 
-        // Show first slide initially
-        showSlide(0);
-
-    }); // Fin del DOMContentLoaded
+    });
 
     // --- LÓGICA DE MODALES ---
-    const modal = document.getElementById('videoModal');
-    const modalCta = document.querySelector('.modal-cta-area');
-    const modalVideo = document.getElementById('modalVideo');
+        const modal = document.getElementById('videoModal');
+        const modalCta = document.querySelector('.modal-cta-area');
+        const modalVideo = document.getElementById('modalVideo');
 
-    // 1. Datos para los videos y los CTAs contextuales
+        modalVideo.addEventListener('ended', function () {
+            modalCta.classList.add('visible');
+        });
+
+
     const videoMap = {
         video1: 'assets/videos/products/bi.mp4',
         video2: 'assets/videos/products/integration.mp4',
@@ -2095,47 +2147,39 @@
         }
     };
 
-    // 2. Funciones para abrir y cerrar el modal
     function openModal(videoId) {
         const data = ctaData[videoId];
         if (!data) return;
 
-        // Elementos del modal
         const modal = document.getElementById('videoModal');
         const modalContent = modal.querySelector('.modal-content');
         const modalSource = document.getElementById('modalSource');
         const modalVideo = document.getElementById('modalVideo');
         const modalCtaArea = document.querySelector('.modal-cta-area');
         
-        // Elementos del CTA
         const modalCtaTitle = document.getElementById('modalCtaTitle');
         const modalCtaText = document.getElementById('modalCtaText');
         const modalCtaButton = document.getElementById('modalCtaButton');
 
-        // Actualizar contenido del CTA
         modalCtaTitle.innerText = data.title;
         modalCtaText.innerText = data.text;
         modalCtaButton.innerText = data.button;
 
-        // Ocultar CTA inicialmente
         modalCtaArea.classList.remove('visible');
         
-        // Cargar y mostrar video
         modalSource.src = videoMap[videoId];
         modalVideo.load();
         
-        // Mostrar modal
         modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
         setTimeout(() => modalContent.classList.add('active-border'), 10);
 
-        // Escuchar evento de finalización del video
         modalVideo.onended = function() {
             modalCtaArea.classList.add('visible');
         };
 
-        // Autoplay
         modalVideo.play().catch(error => {
-            console.log("La reproducción automática fue bloqueada por el navegador. Se requiere interacción del usuario.");
+            console.log("La reproducción automática fue bloqueada por el navegador.");
         });
     }
 
@@ -2145,22 +2189,18 @@
         const modalVideo = document.getElementById('modalVideo');
         const modalCtaArea = document.querySelector('.modal-cta-area');
 
-        // Ocultar modal
         modal.style.display = 'none';
         modalContent.classList.remove('active-border');
+        document.body.style.overflow = '';
         
-        // Detener video y limpiar fuente
         modalVideo.pause();
         document.getElementById('modalSource').src = "";
         
-        // Ocultar CTA para el próximo modal
         modalCtaArea.classList.remove('visible');
         
-        // Remover evento
         modalVideo.onended = null;
     }
     
-    // Cerrar modal al hacer clic fuera del contenido
     document.getElementById('videoModal').addEventListener('click', function(e) {
         if (e.target === this) {
             closeModal();
