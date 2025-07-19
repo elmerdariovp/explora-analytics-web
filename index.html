@@ -569,9 +569,8 @@
         padding: 20px 20px;
     }
 
-    /* --- CSS CORREGIDO --- */
     .methodology-slider {
-        width: 100%; /* <-- AÑADIDO PARA CORREGIR EL BUG EN MÓVILES */
+        width: 100%;
         max-width: 1200px;
         margin: 0 auto;
         position: relative;
@@ -1162,10 +1161,9 @@
         }
     }
 
-    /* --- CSS CORREGIDO --- */
     @media (max-width: 900px) {
         .methodology-slider {
-            /* height: 500px; */ /* <-- ELIMINADO PARA USAR ASPECT-RATIO */
+            /* height: 500px; */ /* Eliminado para usar aspect-ratio */
         }
         .slide-content {
             padding: 0 15px;
@@ -1193,7 +1191,6 @@
         }
     }
 
-    /* --- CSS CORREGIDO --- */
     @media (max-width: 768px) {
         .menu-toggle {
             display: block;
@@ -1256,7 +1253,7 @@
             padding: 40px 25px;
         }
         .methodology-slider {
-            /* height: 550px; */ /* <-- ELIMINADO PARA USAR ASPECT-RATIO */
+            /* height: 550px; */ /* Eliminado para usar aspect-ratio */
         }
         .contact-container::before {
              background: 
@@ -1275,9 +1272,23 @@
         .hero-content {
             gap: 20px;
         }
+
+        /* --- AJUSTE 2.0 --- */
+        .slide-overlay {
+            padding: 20px; /* Reduce el padding para dar más espacio */
+        }
+        .slide-text {
+            padding: 15px; /* Reduce el padding de la caja de texto */
+            font-size: clamp(0.9rem, 2.5vw, 1rem); /* Ajusta el tamaño de fuente */
+        }
+        .slide-title {
+            font-size: clamp(1.5rem, 4vw, 1.8rem); /* Ajusta el tamaño del título */
+        }
+        .method-header {
+            margin-bottom: 15px; /* Reduce el margen inferior */
+        }
     }
 
-    /* --- CSS CORREGIDO --- */
     @media (max-width: 480px) {
         .hero-title {
             font-size: 2.1rem;
@@ -1298,20 +1309,34 @@
             font-size: 1.2rem;
         }
         .methodology-slider {
-            /* height: 600px; */ /* <-- ELIMINADO PARA USAR ASPECT-RATIO */
+            /* height: 600px; */ /* Eliminado para usar aspect-ratio */
         }
-        .method-header {
-            flex-direction: column;
-            gap: 10px;
-        }
-        .phase-number {
-            font-size: 4rem;
-            top: 15px;
-            left: 15px;
-        }
+        
         .nav-container, .hero-content, section.section-container {
             padding-left: 10px;
             padding-right: 10px;
+        }
+
+        /* --- AJUSTE 2.0 --- */
+        .method-header {
+            flex-direction: column; /* Apila el ícono y el título */
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        .phase-number {
+            font-size: 3.5rem; /* Reduce drásticamente el número */
+            top: 15px;
+            left: 15px;
+        }
+        .slide-title {
+            font-size: 1.3rem; /* Reduce aún más el título */
+        }
+        .slide-text {
+            font-size: 0.85rem; /* Reduce aún más el texto */
+            line-height: 1.5;
+        }
+        .carousel-controls {
+            bottom: 15px; /* Sube un poco los controles */
         }
     }
 
@@ -1493,8 +1518,6 @@
     }
     /* --- FIN ESTILOS MODAL --- */
 
-
-    
 @media (max-width: 768px) {
     .modal-video-container {
         max-height: 35vh;
