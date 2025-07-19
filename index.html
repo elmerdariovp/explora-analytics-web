@@ -6,6 +6,9 @@
     <title>Explora Analytics - Transformando Datos en Decisiones Estratégicas</title>
     <meta name="description" content="Explora Analytics ofrece soluciones avanzadas de análisis de datos para impulsar la toma de decisiones estratégicas en tu negocio. Descubre cómo podemos ayudarte a transformar tus datos en información valiosa."/>
     
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/images/logos/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/logos/favicon-16x16.png">
@@ -13,11 +16,6 @@
     <link rel="mask-icon" href="assets/images/logos/safari-pinned-tab.svg" color="#0066ff">
     <meta name="theme-color" content="#0066ff">
     <link rel="manifest" href="assets/site.webmanifest">
-
-    
-
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
 
 <style>
     :root {
@@ -44,7 +42,7 @@
         font-family: 'Space Grotesk', sans-serif;
         line-height: 1.6;
         color: var(--text-primary);
-        overflow-x: hidden; /* Asegura que no haya scroll horizontal no deseado */
+        overflow-x: hidden;
         background: var(--dark-bg);
         position: relative;
     }
@@ -155,12 +153,13 @@
     }
 
     .menu-toggle {
-        display: none; /* Por defecto, oculto en desktop */
+        display: none;
         background: none;
         border: none;
         color: var(--text-primary);
         font-size: 1.8rem;
         cursor: pointer;
+        z-index: 1001;
     }
 
     /* Hero Section */
@@ -576,8 +575,7 @@
         border-radius: 25px;
         overflow: hidden;
         box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
-        height: auto; /* Altura automática para adaptarse al contenido */
-        aspect-ratio: 16/9; /* Mantener relación de aspecto (ajustar según necesidad) */
+        height: 600px;
     }
 
     .carousel-slide {
@@ -585,7 +583,7 @@
         top: 0;
         left: 0;
         width: 100%;
-        height: 100%; /* Corregido: de 115% a 100% para evitar desbordamientos */
+        height: 100%;
         opacity: 0;
         transition: opacity 1s ease-in-out;
         background-size: cover;
@@ -905,10 +903,10 @@
         width: 100%; height: 115%;
         background: 
             linear-gradient(to right, 
-                rgba(10, 10, 15, 0.6) 0%,       /* Cambiado de 0.9 a 0.5 */
-                rgba(10, 10, 15, 0.20) 35%,     /* Cambiado de 0.85 a 0.4 */
-                rgba(26, 26, 46, 0.8) 55%,      /* Cambiado de 0.8 a 0.3 */
-                rgba(26, 26, 46, 0.85) 100%     /* Cambiado de 0.85 a 0.4 */
+                rgba(10, 10, 15, 0.6) 0%,
+                rgba(10, 10, 15, 0.20) 35%,
+                rgba(26, 26, 46, 0.8) 55%,
+                rgba(26, 26, 46, 0.85) 100%
             ),
             url('assets/images/gallery/contact.png') center center/cover;
         z-index: 1;
@@ -1065,7 +1063,7 @@
         box-shadow: 0 10px 30px rgba(0, 212, 255, 0.6);
     }
 
-    /* --- INICIO: SECCIÓN DE FOOTER --- */
+    /* Footer Section */
     .footer {
         background: #06060a;
         color: var(--text-primary);
@@ -1147,8 +1145,6 @@
         color: var(--accent-cyan);
         text-decoration: underline;
     }
-    /* --- FIN: SECCIÓN DE FOOTER --- */
-
 
     /* Responsive Design */
     @media (max-width: 1200px) {
@@ -1192,7 +1188,7 @@
 
     @media (max-width: 768px) {
         .menu-toggle {
-            display: block; /* Ahora se muestra en móviles */
+            display: block;
         }
         .nav-menu {
             position: fixed;
@@ -1206,6 +1202,7 @@
             padding: 20px 0;
             clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
             transition: clip-path 0.5s ease;
+            z-index: 999;
         }
         .nav-menu.active {
             clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
@@ -1262,15 +1259,7 @@
                     rgba(26, 26, 46, 0.85) 65%,
                     rgba(26, 26, 46, 0.8) 100%
                 ),
-                url('https://images.unsplash.com/photo-1554774853-719586f82d77?q=80&w=2070&auto=format&fit=crop') center center/cover;
-        }
-        /* Ajustes de padding para evitar "zoom" y desbordamiento en móviles */
-        .nav-container, .hero-content, section.section-container {
-            padding-left: 15px;
-            padding-right: 15px;
-        }
-        .hero-content { /* Ajuste específico para el contenido del hero */
-            gap: 20px; /* Reducir gap en móviles */
+                url('assets/images/gallery/contact.png') center center/cover;
         }
     }
 
@@ -1305,10 +1294,11 @@
             top: 15px;
             left: 15px;
         }
-        /* Ajustes de padding adicionales para dispositivos muy pequeños */
-        .nav-container, .hero-content, section.section-container {
-            padding-left: 10px;
-            padding-right: 10px;
+        .contact-container {
+            flex-direction: column;
+        }
+        .contact-intro, .contact-form-wrapper {
+            min-width: 100%;
         }
     }
 
@@ -1340,7 +1330,7 @@
         to { opacity: 1; transform: translateY(0); }
     }
     
-    /* --- ESTILOS MODAL Y CTA (MEJORADOS) --- */
+    /* Modal Styles */
     .modal {
         display: none;
         position: fixed;
@@ -1351,12 +1341,14 @@
         height: 100vh;
         background: rgba(0,0,0,0.9);
         justify-content: center;
-        align-items: center; /* Centra el modal verticalmente */
+        align-items: flex-start;
         padding: 20px;
-        overflow-y: auto; /* Permite scroll si el contenido es muy grande */
+        overflow: auto;
     }
 
     .modal-content {
+        overflow-y: auto;
+        padding-top: 10px;
         position: relative;
         width: 100%;
         max-width: 900px;
@@ -1368,7 +1360,7 @@
         overflow: hidden;
         display: flex;
         flex-direction: column;
-        max-height: 90vh; /* Permite que el modal se adapte a la altura */
+        max-height: 90vh;
     }
 
     .modal-content.active-border {
@@ -1381,7 +1373,7 @@
         width: 100%;
         background: #000;
         position: relative;
-        padding-top: 56.25%; /* 16:9 Aspect Ratio */
+        padding-top: 56.25%;
         flex-shrink: 0;
         max-height: 60vh;
     }
@@ -1396,7 +1388,7 @@
     }
 
     .modal-close {
-        position: absolute; /* Cambiado a absolute para que siga el scroll si el modal es muy alto */
+        position: fixed;
         top: 15px;
         right: 20px;
         background: rgba(0,0,0,0.4);
@@ -1425,7 +1417,7 @@
         text-align: center;
         background: var(--dark-secondary);
         border-top: 1px solid rgba(255, 255, 255, 0.1);
-        display: none; /* Oculto inicialmente */
+        display: none;
         opacity: 0;
         transform: translateY(20px);
         transition: opacity 0.5s ease, transform 0.5s ease;
@@ -1455,7 +1447,7 @@
         margin-right: auto;
     }
     
-    /* AJUSTES ESPECÍFICOS PARA MÓVILES */
+    /* Mobile adjustments */
     @media (max-width: 768px) {
         .modal {
             padding: 10px;
@@ -1488,36 +1480,15 @@
             font-size: 1rem;
         }
     }
-    /* --- FIN ESTILOS MODAL --- */
 
-
-    
-@media (max-width: 768px) {
-    .modal-video-container {
-        max-height: 35vh;
+    @media (max-width: 768px) {
+        #modalCtaButton {
+            padding: 10px 20px;
+            font-size: 0.95rem;
+        }
     }
-    .modal-cta-area {
-        padding: 16px 20px;
-    }
-    .modal-cta-area h3 {
-        font-size: 1.2rem;
-    }
-    .modal-cta-area p {
-        font-size: 0.9rem;
-    }
-}
 
-
-
-@media (max-width: 768px) {
-    #modalCtaButton {
-        padding: 10px 20px;
-        font-size: 0.95rem;
-    }
-}
-
-
-/* --- AJUSTES PARA IMÁGENES EN TARJETAS 3D HERO --- */
+    /* Card images */
     .process-step-back {
         position: relative;
         z-index: 1;
@@ -1533,8 +1504,8 @@
         background-size: cover;
         background-position: center;
         border-radius: 20px;
-        opacity: 0.3; /* Aumentado de 0.15 para mayor visibilidad inicial */
-        filter: blur(1px); /* Reducido de 3px para mayor claridad inicial */
+        opacity: 0.15;
+        filter: blur(3px);
         z-index: -1;
         transition: 
             opacity 0.7s ease-out,
@@ -1542,7 +1513,7 @@
     }
 
     .process-step:hover .process-step-back::before {
-        opacity: 0.6 !important; /* Aumentado de 0.45 para mayor impacto al hover */
+        opacity: 0.45 !important;
         filter: blur(0) brightness(115%);
     }
 
@@ -1690,7 +1661,7 @@
     <div class="modal-content">
         <button class="modal-close" onclick="closeModal()">×</button>
         <div class="modal-video-container">
-            <video autoplay="" controls="" id="modalVideo">
+            <video autoplay controls id="modalVideo">
                 <source id="modalSource" src="" type="video/mp4"/>
                 Tu navegador no soporta video HTML5.
             </video>
@@ -1861,29 +1832,12 @@
 <input id="privacy-policy" name="privacy-policy" required="" type="checkbox"/>
 <label for="privacy-policy">Acepto las <a href="#" target="_blank">políticas de tratamiento de datos personales</a></label>
 </div>
-<input type="hidden" id="recaptcha-response" name="recaptcha-response">
 <button class="cta-button" type="submit">Enviar Mensaje</button>
 <p class="microcopy">
   Tus datos son importantes para nosotros</a>.
 </p>
 </form>
 </div>
-
-<script src="https://www.google.com/recaptcha/api.js?render=TU_SITE_KEY" async defer></script>
-<script>
-    // Script para manejar el token de reCAPTCHA
-    grecaptcha.ready(function() {
-        // Ejecuta reCAPTCHA y obtiene el token cuando la API está lista
-        grecaptcha.execute('TU_SITE_KEY', {action: 'contact'}).then(function(token) {
-            document.getElementById('recaptcha-response').value = token;
-        }).catch(function(error) {
-            console.error("Error al ejecutar reCAPTCHA:", error);
-            // Opcional: Deshabilitar el botón de enviar o mostrar un mensaje al usuario
-            // document.querySelector('.submit-button').disabled = true;
-        });
-    });
-</script>
-
 </div>
 </div>
 </section>
@@ -1908,7 +1862,6 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-
         // Header scroll effect
         const header = document.querySelector('.header');
         window.addEventListener('scroll', () => {
@@ -1926,12 +1879,14 @@
             navMenu.classList.toggle('active');
             menuToggle.innerHTML = navMenu.classList.contains('active') ?
                 '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
-            // Asegura que el scroll del body se maneje cuando el menú está abierto
-            if (navMenu.classList.contains('active')) {
-                document.body.style.overflow = 'hidden';
-            } else {
-                document.body.style.overflow = '';
-            }
+        });
+
+        // Close mobile menu when clicking links
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            });
         });
 
         // Smooth scrolling for navigation links
@@ -1939,13 +1894,11 @@
             anchor.addEventListener('click', function(e) {
                 const href = this.getAttribute('href');
                 
-                // Allow default behavior for non-anchor links or links handled by other scripts
                 if (href === '#' || href.startsWith('#') && document.querySelector(href)) {
                     e.preventDefault();
                     if (navMenu.classList.contains('active')) {
                         navMenu.classList.remove('active');
                         menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-                        document.body.style.overflow = ''; // Restaurar scroll del body al cerrar menú
                     }
                     const target = document.querySelector(href);
                     if (target) {
@@ -1957,7 +1910,6 @@
                 }
             });
         });
-
 
         // Animation on scroll
         const observerOptions = {
@@ -1987,49 +1939,27 @@
                     return;
                 }
 
-                // Aquí es donde enviarías los datos del formulario (incluido el token de reCAPTCHA)
-                // Usar fetch() para enviar de forma asíncrona
-                // const formData = new FormData(this);
-                // fetch(this.action, {
-                //     method: this.method,
-                //     body: formData
-                // }).then(response => response.json())
-                // .then(data => {
-                //     console.log('Formulario enviado con éxito:', data);
-                //     // Mostrar mensaje de éxito
-                //     showSuccessMessage(this);
-                // })
-                // .catch(error => {
-                //     console.error('Error al enviar el formulario:', error);
-                //     alert('Hubo un error al enviar tu mensaje. Por favor, inténtalo de nuevo más tarde.');
-                // });
-
-                // **Simulación de envío exitoso (eliminar en producción)**
-                showSuccessMessage(this);
+                const formWrapper = document.querySelector('.contact-form-wrapper');
+                const existingMessage = formWrapper.querySelector('.success-message');
+                if (existingMessage) {
+                    existingMessage.remove();
+                }
+                const successMessage = document.createElement('div');
+                successMessage.className = 'success-message';
+                successMessage.innerHTML = `
+                    <i class="fas fa-check-circle" style="font-size: 2.5rem; color: var(--accent-cyan); margin-bottom: 15px; display: block;"></i>
+                    <h4 style="margin-bottom: 10px; font-size: 1.5rem;">¡Gracias por contactarnos!</h4>
+                    <p style="color: var(--text-secondary);">Hemos recibido tu mensaje y nos pondremos en contacto contigo en menos de 24 horas. Nos comprometemos a proteger tus datos y usarlos solo de acuerdo con nuestra <a href="/politica-de-privacidad.html">política de privacidad</a>.</p>
+                `;
+                this.style.display = 'none';
+                formWrapper.insertBefore(successMessage, this);
+                setTimeout(() => {
+                    this.reset();
+                    privacyCheckbox.checked = false;
+                    successMessage.remove();
+                    this.style.display = 'block';
+                }, 6000);
             });
-        }
-
-        function showSuccessMessage(formElement) {
-            const formWrapper = formElement.closest('.contact-form-wrapper');
-            const existingMessage = formWrapper.querySelector('.success-message');
-            if (existingMessage) {
-                existingMessage.remove();
-            }
-            const successMessage = document.createElement('div');
-            successMessage.className = 'success-message';
-            successMessage.innerHTML = `
-                <i class="fas fa-check-circle" style="font-size: 2.5rem; color: var(--accent-cyan); margin-bottom: 15px; display: block;"></i>
-                <h4 style="margin-bottom: 10px; font-size: 1.5rem;">¡Gracias por contactarnos!</h4>
-                <p style="color: var(--text-secondary);">Hemos recibido tu mensaje y nos pondremos en contacto contigo en menos de 24 horas. Nos comprometemos a proteger tus datos y usarlos solo de acuerdo con nuestra <a href="/politica-de-privacidad.html">política de privacidad</a>.</p>
-            `;
-            formElement.style.display = 'none';
-            formWrapper.insertBefore(successMessage, formElement);
-            setTimeout(() => {
-                formElement.reset();
-                document.getElementById('privacy-policy').checked = false; // Reset checkbox state
-                successMessage.remove();
-                formElement.style.display = 'block';
-            }, 6000); // El mensaje desaparece después de 6 segundos
         }
 
         // Carrusel de Metodología
@@ -2100,21 +2030,15 @@
             startAutoSlide();
         }
 
+        // Show first slide initially
+        showSlide(0);
+
     }); // Fin del DOMContentLoaded
 
-    // --- LÓGICA DE MODALES (Fuera de DOMContentLoaded para ser global) ---
-        const modal = document.getElementById('videoModal');
-        const modalCta = document.querySelector('.modal-cta-area');
-        const modalVideo = document.getElementById('modalVideo');
-
-        modalVideo.addEventListener('ended', function () {
-            modalCta.classList.add('visible');
-            setTimeout(() => {
-                // ScrollIntoView solo si es necesario, el modal ya está centrado
-                // modalCta.scrollIntoView({ behavior: 'smooth', block: 'start' }); 
-            }, 300);
-        });
-
+    // --- LÓGICA DE MODALES ---
+    const modal = document.getElementById('videoModal');
+    const modalCta = document.querySelector('.modal-cta-area');
+    const modalVideo = document.getElementById('modalVideo');
 
     // 1. Datos para los videos y los CTAs contextuales
     const videoMap = {
@@ -2200,9 +2124,8 @@
         modalSource.src = videoMap[videoId];
         modalVideo.load();
         
-        // Mostrar modal y deshabilitar scroll del body
+        // Mostrar modal
         modal.style.display = 'flex';
-        document.body.style.overflow = 'hidden'; /* Deshabilita el scroll del body */
         setTimeout(() => modalContent.classList.add('active-border'), 10);
 
         // Escuchar evento de finalización del video
@@ -2225,7 +2148,6 @@
         // Ocultar modal
         modal.style.display = 'none';
         modalContent.classList.remove('active-border');
-        document.body.style.overflow = ''; /* Habilita el scroll del body */
         
         // Detener video y limpiar fuente
         modalVideo.pause();
